@@ -24,25 +24,38 @@ def scrap_review(URL) :
 
     return(review)
 
+
+
+def generate_costum_review(review,prompt):
+    given_review = review
+    given_prompt = f'{prompt}{given_review}'
+
+    generator = InferenceClient(model='microsoft/Phi-3-mini-4k-instruct', timeout=120)
+
+    generated_respo = generator.post(
+        json={
+            'inputs' : given_prompt,
+            'parameters':{'max_new_tokens' : 50},
+            'task' : 'text-generation'
+        }
+    )
+
+    res = json.loads(generated_respo.decode())[0]["generated_text"]
+    res = res[len(prompt):]
+    res = res[len(review):]
+
+    print("🟢🟢🟢🟢🟢🟢🟢")
+    print("🔴🔴🔴🔴🔴🔴🔴")
+    print("🔴🔴🔴🔴🔴🔴🔴")
+    print(f"{res}      did it ")
+    print("🔴🔴🔴🔴🔴🔴🔴")
+    print("🔴🔴🔴🔴🔴🔴🔴")
+
+    return res
+
+
 review_from_web = scrap_review('https://www.amazon.com/Snpurdiri-Keyboard-Ultra-Compact-Waterproof-Black-White/dp/B097T276QL/ref=sr_1_1_sspa?_encoding=UTF8&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY')
 
-prompt = f"Make this review sound more personal and engaging: {review_from_web}"
+prompt_from_user = f"Summarize and personalize the review:"
 
-generator = InferenceClient(model='microsoft/Phi-3-mini-4k-instruct', timeout=120)
-
-generated_respo = generator.post(
-    json={
-        'inputs' : prompt,
-        'parameters':{'max_new_tokens' : 200},
-        'task' : 'text-generation'
-    }
-)
-
-res = json.loads(generated_respo.decode())[0]["generated_text"]
-
-print("🟢🟢🟢🟢🟢🟢🟢")
-print("🔴🔴🔴🔴🔴🔴🔴")
-print("🔴🔴🔴🔴🔴🔴🔴")
-print(f"{res}      did it ")
-print("🔴🔴🔴🔴🔴🔴🔴")
-print("🔴🔴🔴🔴🔴🔴🔴")
+generate_costum_review(review_from_web,prompt_from_user)
