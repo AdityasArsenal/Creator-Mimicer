@@ -1,6 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
-import pandas as pd
+from huggingface_hub import InferenceClient
+from huggingface_hub import login
+import json 
+login(token="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")
  
 def scrap_review(URL) :
 
@@ -21,6 +24,25 @@ def scrap_review(URL) :
 
     return(review)
 
-   
+review_from_web = scrap_review('https://www.amazon.com/Snpurdiri-Keyboard-Ultra-Compact-Waterproof-Black-White/dp/B097T276QL/ref=sr_1_1_sspa?_encoding=UTF8&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY')
 
-scrap_review('https://www.amazon.com/Snpurdiri-Keyboard-Ultra-Compact-Waterproof-Black-White/dp/B097T276QL/ref=sr_1_1_sspa?_encoding=UTF8&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY')
+prompt = f"Make this review sound more personal and engaging: {review_from_web}"
+
+generator = InferenceClient(model='microsoft/Phi-3-mini-4k-instruct', timeout=120)
+
+generated_respo = generator.post(
+    json={
+        'inputs' : prompt,
+        'parameters':{'max_new_tokens' : 200},
+        'task' : 'text-generation'
+    }
+)
+
+res = json.loads(generated_respo.decode())[0]["generated_text"]
+
+print("🟢🟢🟢🟢🟢🟢🟢")
+print("🔴🔴🔴🔴🔴🔴🔴")
+print("🔴🔴🔴🔴🔴🔴🔴")
+print(f"{res}      did it ")
+print("🔴🔴🔴🔴🔴🔴🔴")
+print("🔴🔴🔴🔴🔴🔴🔴")
