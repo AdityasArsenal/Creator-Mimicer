@@ -35,9 +35,11 @@ class int:
         for filename in os.listdir(video_tmp_dir):
             scr = os.path.join(video_tmp_dir,filename)
             destination = os.path.join(self.downlode_path,filename)
-            shutil.move(scr,destination)
+            shutil.move(scr,destination)  
+            shutil.rmtree(video_tmp_dir)
         
 
 insta = int(path=r"C:\Users\24adi\OneDrive\Desktop\intern\AI system Internship\AI-System\vids\reels")
 insta.authenticate("batburg1","Upsidedown1234")
 insta.fetch_creator_content("mrbeast",5)
+
