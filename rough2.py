@@ -1,45 +1,28 @@
-import instaloader
-import os
-import shutil
+from moviepy.editor import VideoFileClip
+from getting_vid_path import get_vid_path
 
-loader = instaloader.Instaloader
+def extract_audio_from_video(video_path, audio_output_path):
+    # Load the video file
+    video = VideoFileClip(fr"{video_path}")
+    
+    # Extract audio from the video
+    audio = video.audio
+    
+    # Write the audio to a file (e.g., MP3 or WAV)
+    audio.write_audiofile(fr"{audio_output_path}")
 
-class int:
-    def __init__(self,path):
-        self.loader = instaloader.Instaloader(download_videos=True)
-        self.downlode_path=path
-        os.makedirs(self.downlode_path,exist_ok=True)
-        
+# Example usage
 
-    def authenticate(self,username, password):
-        self.loader.login(username,password)
+video_paths = []
+video_paths = get_vid_path()
 
-    def fetch_creator_content(self, username: str, max_posts):
+print("🔴🔴🔴🔴🔴🔴")
 
-        profile = instaloader.Profile.from_username(self.loader.context, username)
-        reels = profile.get_reels()
-        videos, captions = [], []
+i = 0
+for video_path in video_paths:
+    i = i+1
+    print(video_path)
 
-        c = 0
-        for reel in reels:
-            if c >= max_posts:
-                break
-            if reel.is_video:
-                video_data = self.process_video(reel)
-                c = c+1
-            
-    def process_video(self,reel):
-        video_tmp_dir = f"temp_{reel.shortcode}"
-        self.loader.download_post(reel, target=video_tmp_dir)
+print("🔴🔴🔴🔴🔴🔴")
 
-        for filename in os.listdir(video_tmp_dir):
-            scr = os.path.join(video_tmp_dir,filename)
-            destination = os.path.join(self.downlode_path,filename)
-            shutil.move(scr,destination)  
-            shutil.rmtree(video_tmp_dir)
-        
-
-insta = int(path=r"C:\Users\24adi\OneDrive\Desktop\intern\AI system Internship\AI-System\vids\reels")
-insta.authenticate("batburg1","Upsidedown1234")
-insta.fetch_creator_content("mrbeast",5)
 
