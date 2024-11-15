@@ -1,0 +1,1 @@
+I sat down with the CTO of Mastercard. Mastercard's AI-powered fraud detection engine prevented $20B in fraud this past year. Moving from rules-based to AI systems tripled their effectiveness, and their new Decision Intelligence Pro model adds another 20% improvement. AI isn't just for text/image/audio - it's transforming financial security.

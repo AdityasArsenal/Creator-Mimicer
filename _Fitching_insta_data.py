@@ -2,9 +2,9 @@ import instaloader
 import os
 import shutil
 
-loader = instaloader.Instaloader
+loader = instaloader.Instaloader()
 
-class int:
+class instagramm:
     def __init__(self,path):
         self.loader = instaloader.Instaloader(download_videos=True)
         self.downlode_path=path
@@ -37,10 +37,10 @@ class int:
             destination = os.path.join(self.downlode_path,filename)
             shutil.move(scr,destination)
         
-
-
 def insta_lod(username):
 
-    insta = int(path=r"C:\Users\24adi\OneDrive\Desktop\intern\AI system Internship\AI-System\vids\reels")
-    insta.authenticate("literal_.memes","Upsidedown123")
-    insta.fetch_creator_content(f"{username}",3)
+    insta = instagramm(path=r"C:\Users\24adi\OneDrive\Desktop\intern\AI system Internship\AI-System\vids\reels")
+    insta.authenticate("fire_film5","Upsidedown123")
+    insta.fetch_creator_content(f"{username}",16)
+
+insta_lod("thevarunmayya")

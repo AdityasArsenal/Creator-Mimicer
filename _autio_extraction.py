@@ -12,13 +12,14 @@ def extract_audio_from_video(video_path, audio_output_path):
     audio.write_audiofile(fr"{audio_output_path}")
 
 # Example usage
+def get_audio():
+    video_paths = []
+    video_paths = get_vid_path()
 
-video_paths = []
-video_paths = get_vid_path()
+    i = 0
+    for video_path in video_paths:
+        i = i+1
+        audio_output_path = fr"C:\Users\24adi\OneDrive\Desktop\intern\AI system Internship\AI-System\audios\extracted{i}.mp3"
+        extract_audio_from_video(video_path,audio_output_path)
 
-i = 0
-
-for video_path in video_paths:
-    i = i+1
-    audio_output_path = fr"C:\Users\24adi\OneDrive\Desktop\intern\AI system Internship\AI-System\audios\extracted{i}.mp3"
-    extract_audio_from_video(video_path,audio_output_path)
+get_audio()

@@ -23,11 +23,8 @@ def generate_costum_review(review,prompt):
     res = res[len(prompt):]
     res = res[len(review):]
 
-    print("🟢🟢🟢🟢🟢🟢🟢")
-    print("🔴🔴🔴🔴🔴🔴🔴")
-    print("🔴🔴🔴🔴🔴🔴🔴")
-    print(f"{res}🟣🟣🟣🟣🟣")
-    print("🔴🔴🔴🔴🔴🔴🔴")
-    print("🔴🔴🔴🔴🔴🔴🔴")
+    print("🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡")
+    print(f"🟣🟣🟣🟣🟣{res}🟣🟣🟣🟣🟣")
+    print("🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡")
 
     return res
