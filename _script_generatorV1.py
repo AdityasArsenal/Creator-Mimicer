@@ -28,7 +28,7 @@ def generate_costum_dis(review,prompt):
     res = res[len(review):]
 
     print("🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡")
-    print(f"🟣🟣🟣🟣🟣{res}🟣🟣🟣🟣🟣")
+    print(f"{res}")
     print("🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡")
 
     return res
