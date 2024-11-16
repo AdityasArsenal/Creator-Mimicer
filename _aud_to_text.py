@@ -32,11 +32,9 @@ for aud_path in aud_paths:
     print("🔴🔴🔴🔴🔴🔴")
     text = transcribe_audio_to_text(aud_path)
     discriptions.append(text)
-    
-
 
 res = ' '.join(discriptions)
 
 print("🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡")
-print(f"🟣🟣🟣🟣🟣{res}🟣🟣🟣🟣🟣🟣🟣")
+print(f"{res}")
 print("🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡")
