@@ -18,7 +18,7 @@ def generate_costum_dis(review,prompt):
     generated_respo = generator.post(
         json={
             'inputs' : given_prompt,
-            'parameters':{'max_new_tokens' : 210},
+            'parameters':{'max_new_tokens' : 200},
             'task' : 'text-generation'
         }
     )
