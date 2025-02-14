@@ -3,18 +3,17 @@ This is going to work as system which can use insta profiles to learn and be use
 
 Initially it pulls data from the amazon and generates a review, when this review is passed to the _main.py file it creates a script of that perticular product in the creators style
 
-# Yoga Trainer
+# mimicer
 
 
-## This project will help you with your yoga poses, with voice instructions.
-Yoga Trainer, this project kills the need of a yoga trainer as it helps you to do your yoga poses correctly. This was passible with the help of 2 models
-* Fine tuned - MobileNetV2 (YES I TRAINED IT).
-* MediaPipe.
+## This project will help you clone any creators style.
+this was possible with llama and web scraping.
+* partial RAG model
 
 
 ## How To Use 
-  ### The Yoga Trainer
-     just run the main.py
+  ### Insta seraper
+     just run the py file
   
      from there the trainer will instruct you 🎉
   ### The Finetuner 
